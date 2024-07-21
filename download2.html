@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sequence Button System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        
+       .logo {
+            margin: 20px;
+        }
+        
+       .logo img {
+            width: 50px;
+            height: 50px;
+        }
+        
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin-top: 50px;
+        }
+        
+       .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+       .btn {
+            background-color: #ccc;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+        }
+        
+       .btn:hover {
+            background-color: #3e8e41;
+        }
+        
+       .btn:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+        
+       .btn.enabled {
+            background-color: #4CAF50;
+        }
+        
+       .form-box {
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Logo">
+        </div>
+        <h1>Gateway Mod</h1>
+    </header>
+    <main>
+        <section class="button-container">
+            <form class="form-box">
+                <button class="btn subscribe" id="subscribe-btn">Subscribe</button>
+                <br>
+                <button class="btn like" id="like-btn" disabled>Like</button>
+                <br>
+                <button class="btn share" id="share-btn" disabled>Share</button>
+                <br>
+                <button class="btn get-link" id="get-link-btn" disabled>Get Link</button>
+            </form>
+        </section>
+    </main>
+    <script>
+        const subscribeBtn = document.getElementById('subscribe-btn');
+        const likeBtn = document.getElementById('like-btn');
+        const shareBtn = document.getElementById('share-btn');
+        const getLinkBtn = document.getElementById('get-link-btn');
+        
+        let sequence = 0;
+        
+        subscribeBtn.addEventListener('click', () => {
+            sequence++;
+            subscribeBtn.disabled = true;
+            setTimeout(() => {
+                subscribeBtn.classList.add('enabled');
+                likeBtn.disabled = false;
+            }, 10000);
+        });
+        
+        likeBtn.addEventListener('click', () => {
+            sequence++;
+            likeBtn.disabled = true;
+            setTimeout(() => {
+                likeBtn.classList.add('enabled');
+                shareBtn.disabled = false;
+            }, 10000);
+        });
+        
+        shareBtn.addEventListener('click', () => {
+            sequence++;
+            shareBtn.disabled = true;
+            setTimeout(() => {
+                shareBtn.classList.add('enabled');
+                getLinkBtn.disabled = false;
+            }, 10000);
+        });
+        
+        getLinkBtn.addEventListener('click', () => {
+            if (sequence === 3) {
+                // Get link logic here
+                alert('You got the link!');
+                // You can add your link logic here, for example:
+                const link = 'https://example.com';
+                window.location.href = link;
+            } else {
+                alert('Please complete the sequence!');
+            }
+        });
+    </script>
+</body>
+</html>
