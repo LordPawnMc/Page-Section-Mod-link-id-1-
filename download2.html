@@ -93,10 +93,14 @@
         </section>
     </main>
     <script>
+
+        
         const subscribeBtn = document.getElementById('subscribe-btn');
         const likeBtn = document.getElementById('like-btn');
         const shareBtn = document.getElementById('share-btn');
         const getLinkBtn = document.getElementById('get-link-btn');
+
+          const allButton = subscribeBtn, likeBtn, shareBtn
         
         let sequence = 0;
         
@@ -107,7 +111,7 @@
                 subscribeBtn.classList.add('enabled');
                 likeBtn.disabled = false;
 
-                window.location.href = "https://m.youtube.com/watch?v=BcBMJqfRSx8&t=7s";
+                
             }, 10000);
             
         });
@@ -118,7 +122,7 @@
             setTimeout(() => {
                 likeBtn.classList.add('enabled');
                 shareBtn.disabled = false;
-                window.location.href = "https://m.youtube.com/watch?v=BcBMJqfRSx8&t=7s";
+                
             }, 10000);
 
          
@@ -130,7 +134,7 @@
             setTimeout(() => {
                 shareBtn.classList.add('enabled');
                 getLinkBtn.disabled = false;
-                window.location.href = "https://m.youtube.com/watch?v=BcBMJqfRSx8&t=7s";
+            
             }, 10000);
               
         });
