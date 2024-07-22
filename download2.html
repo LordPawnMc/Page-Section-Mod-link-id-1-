@@ -17,11 +17,11 @@
             text-align: center;
         }
         
-       .logo {
+        .logo {
             margin: 20px;
         }
         
-       .logo img {
+        .logo img {
             width: 50px;
             height: 50px;
         }
@@ -34,13 +34,13 @@
             margin-top: 50px;
         }
         
-       .button-container {
+        .button-container {
             display: flex;
             flex-direction: column;
             align-items: center;
         }
         
-       .btn {
+        .btn {
             background-color: #ccc;
             color: #fff;
             padding: 10px 20px;
@@ -50,25 +50,47 @@
             margin: 10px;
         }
         
-       .btn:hover {
+        .btn:hover {
             background-color: #3e8e41;
         }
         
-       .btn:disabled {
+        .btn:disabled {
             background-color: #ccc;
             cursor: not-allowed;
         }
         
-       .btn.enabled {
+        .btn.enabled {
             background-color: #4CAF50;
         }
         
-       .form-box {
+        .form-box {
             margin: 20px;
             padding: 20px;
             border: 1px solid #ccc;
             border-radius: 5px;
             width: 300px;
+            /* Add a rainbow border effect */
+            border: 2px solid;
+            border-image: linear-gradient(to right, #ff69b4, #ffa07a, #ffd700, #ffff00, #00ff00, #00ffff, #0066ff, #6600ff);
+            border-image-slice: 1;
+            animation: rainbow-border 5s infinite;
+        }
+        
+        @keyframes rainbow-border {
+            0% {
+                border-image: linear-gradient(to right, #ff69b4, #ffa07a, #ffd700, #ffff00, #00ff00, #00ffff, #0066ff, #6600ff);
+            }
+            100% {
+                border-image: linear-gradient(to right, #6600ff, #0066ff, #00ffff, #00ff00, #ffff00, #ffd700, #ffa07a, #ff69b4);
+            }
+        }
+        
+        .footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            clear: both;
         }
     </style>
 </head>
@@ -87,14 +109,14 @@
                 <button class="btn like" id="like-btn" disabled>Like</button>
                 <br>
                 <button class="btn share" id="share-btn" disabled>Share</button>
-                <br>
-                <button class="btn get-link" id="get-link-btn" disabled>Get Link</button>
             </form>
+            <button class="btn get-link" id="get-link-btn" disabled>Get Link</button>
         </section>
     </main>
+    <div class="footer">
+        <p>&copy; 2023 Gateway Mod</p>
+    </div>
     <script>
-
-        
         const subscribeBtn = document.getElementById('subscribe-btn');
         const likeBtn = document.getElementById('like-btn');
         const shareBtn = document.getElementById('share-btn');
@@ -112,19 +134,7 @@
                 likeBtn.disabled = false;
 
                 
-            }, 10000);
-            
-        });
-        
-        likeBtn.addEventListener('click', () => {
-            sequence++;
-            likeBtn.disabled = true;
-            window.location.href = "https://m.youtube.com/watch?v=BcBMJqfRSx8&t=7s";
-            setTimeout(() => {
-                likeBtn.classList.add('enabled');
-                shareBtn.disabled = false;
-                
-            }, 10000);
+                        }, 10000);
 
          
         });
