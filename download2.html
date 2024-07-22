@@ -99,14 +99,14 @@
         const likeBtn = document.getElementById('like-btn');
         const shareBtn = document.getElementById('share-btn');
         const getLinkBtn = document.getElementById('get-link-btn');
-
-          const allButton = subscribeBtn, likeBtn, shareBtn
-        
+      
         let sequence = 0;
         
         subscribeBtn.addEventListener('click', () => {
             sequence++;
             subscribeBtn.disabled = true;
+
+            window.location.href = "
             setTimeout(() => {
                 subscribeBtn.classList.add('enabled');
                 likeBtn.disabled = false;
