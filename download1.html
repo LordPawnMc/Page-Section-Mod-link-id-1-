@@ -123,8 +123,16 @@
 
     <script>
         // JavaScript code
+
+        
         const downloadBtn = document.querySelector('.download-btn');
 
+        function downloadBtn(){
+       
+         window.location.href = 'https://link-hub.net/1206021/download-mod-menu';
+            
+        };
+        
         let angle = 0;
         let rainbowColors = ["#ff69b4", "#ff69b4", "#ffff00", "#00ff00", "#0000ff"];
 
@@ -149,7 +157,7 @@
         setInterval(drawRainbowBorder, 50);
 
         downloadBtn.addEventListener('click', () => {
-            window.location.href = 'https://link-hub.net/1206021/download-mod-menu';
+            
     downloadBtn.style.borderColor = "#2e6c31";
     downloadBtn.style.background-color = "#2e6c31";
     
