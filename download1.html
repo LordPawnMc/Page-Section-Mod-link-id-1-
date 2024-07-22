@@ -1,169 +1,111 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minecraft PE Behavior Pack</title>
-    <style>
-        /* CSS code */
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-        }
-
-        header {
-            background-color: #333;
-            padding: 1em;
-            text-align: center;
-        }
-
-        nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: space-between;
-        }
-
-        nav li {
-            margin-right: 20px;
-        }
-
-        nav a {
-            color: #fff;
-            text-decoration: none;
-        }
-
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-        }
-
-        .btn {
-            background-color: #4CAF50;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-
-        .btn:hover {
-            background-color: #3e8e41;
-        }
-
-        .background-image {
-            background-image: url('background-image.jpg');
-            background-size: cover;
-            background-position: center;
-            height: 100vh;
-            width: 100vw;
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: -1;
-        }
-
-        .form-box {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-            width: 300px;
-            margin: 40px auto;
-        }
-
-        .download-btn {
-            background-color: #4CAF50;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            position: relative;
-            border-radius: 10px;
-            border: 2px solid #fff;
-        }
-
-        .download-btn:hover {
-            background-color: #3e8e41;
-        }
-
-        .download-btn:active {
-            background-color: #2e6c31;
-        }
-
-        .download-btn.clicked {
-            background-color: #2e6c31;
-            animation: none;
-        }
-    </style>
+	<title>Mod Menu</title>
+	<style>
+		/* Add some basic styling to make it look decent */
+		body {
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+		}
+		.header {
+			background-color: #3498db; /* A nice blue color for the header */
+			padding: 20px;
+			text-align: center;
+		}
+		.footer {
+			background-color: #3498db; /* Same blue color for the footer */
+			padding: 20px;
+			text-align: center;
+			clear: both;
+		}
+		.logo {
+			width: 50px;
+			height: 50px;
+			margin-right: 10px;
+		}
+		.button {
+			background-color: #4CAF50;
+			color: #ffffff;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+		.button:hover {
+			background-color: #3e8e41;
+		}
+		.box {
+			width: 50%;
+			margin: 40px auto;
+			padding: 20px;
+			background-color: #f0f0f0;
+			border: 5px solid;
+			border-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet) 1;
+			border-radius: 10px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+		}
+		.box:hover {
+			box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+		}
+		.download-button {
+			background-color: #ff69b4;
+			color: #ffffff;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+			border: 2px solid;
+			animation: rainbow-border 3s infinite;
+		}
+		.download-button:hover {
+			background-color: #ff99cc;
+		}
+		
+		@keyframes rainbow-border {
+			0% {
+				border-color: red;
+			}
+			16.67% {
+				border-color: orange;
+			}
+			33.33% {
+				border-color: yellow;
+			}
+			50% {
+				border-color: green;
+			}
+			66.67% {
+				border-color: blue;
+			}
+			83.33% {
+				border-color: indigo;
+			}
+			100% {
+				border-color: violet;
+			}
+		}
+	</style>
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#" class="logo">Mod Menu</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Links</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <div class="background-image"></div>
-        <div class="form-box">
-            <h2>This is the first gateway</h2>
-            <form>
-                <button class="download-btn">Download</button>
-            </form>
-        </div>
-    </main>
-
-    <script>
-        // JavaScript code
-
-        
-        const downloadBtn = document.querySelector('.download-btn');
-
-        function downloadBtn(){
-       
-         window.location.href = 'https://link-hub.net/1206021/download-mod-menu';
-            
-        };
-        
-        let angle = 0;
-        let rainbowColors = ["#ff69b4", "#ff69b4", "#ffff00", "#00ff00", "#0000ff"];
-
-        function drawRainbowBorder() {
-            let borderStyle = "2px solid ";
-            for (let i = 0; i < rainbowColors.length; i++) {
-                borderStyle += rainbowColors[i] + " 20px, ";
-            }
-            downloadBtn.style.border = borderStyle.slice(0, -2);
-            angle += 10;
-            if (angle >= 360) {
-                angle = 0;
-            }
-            for (let i = 0; i < rainbowColors.length; i++) {
-                downloadBtn.style.borderStyle = "solid";
-                downloadBtn.style.borderColor = rainbowColors[i];
-                downloadBtn.style.borderRadius = "10px";
-                downloadBtn.style.transform = "rotate(" + angle + "deg)";
-            }
-        }
-
-        setInterval(drawRainbowBorder, 50);
-
-        downloadBtn.addEventListener('click', () => {
-            
-    downloadBtn.style.borderColor = "#2e6c31";
-    downloadBtn.style.background-color = "#2e6c31";
-    
-});
-
-</script>
-
+	<header class="header">
+		<img src="logo.png" alt="Logo" class="logo">
+		<h1>Mod Menu</h1>
+		<button class="button">About</button>
+		<button class="button">Links</button>
+	</header>
+	<div class="box">
+		<button class="download-button" onclick="redirectToWebsite()">Download-Link</button>
+	</div>
+	<footer class="footer">
+		<p>&copy; 2024 Mod Menu</p>
+	</footer>
+	
+	<script>
+		function redirectToWebsite() {
+			window.location.href = "https://link-hub.net/1206021/download-mod-menu";
+		}
+	</script>
 </body>
 </html>
